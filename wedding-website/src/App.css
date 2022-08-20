@@ -225,15 +225,57 @@ p {
   flex: 1;
 }
 
-.confirm-details {
-  position: relative;
+.card {
   margin: 20px;
   font-size: 1.25rem;
 }
 
-.confirm-details * {
+.card * {
   margin: 10px 0;
   font-size: 1.25rem;
+}
+
+.card th, .card td {
+  font-size: 1rem;
+  padding: 0 10px;
+  text-align: left;
+}
+
+.confirm-details {
+  position: relative;
+}
+
+.confirm-details * {
+  padding: 0 10px;
+}
+
+.attendee-rsvp-container {
+  margin: 20px 0;
+  padding: 0;
+}
+
+.attendee-rsvp {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.attendee-rsvp * {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.radio-field {
+  flex-shrink: 0;
+  padding: 0 5px;
+}
+
+.attendee {
+  flex-grow: 1;
+}
+
+.show-details * {
+  font-size: 1.1rem;
 }
 
 .comments {

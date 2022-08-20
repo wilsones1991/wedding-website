@@ -5,7 +5,7 @@ function ShowDetails( { familyGroup, setResponseLoaded } ) {
     }
     
     return (
-        <>
+        <div className="card show-details">
             <p>Thank you for your RSVP! Please check your details below to make sure everything looks right.</p>
             <table>
                 <tr>
@@ -21,9 +21,9 @@ function ShowDetails( { familyGroup, setResponseLoaded } ) {
                     )
                 })}
             </table>
-            <p>Notes: <em>{familyGroup[0].comments}</em></p>
-            <button onClick={handleEditRSVP}>Edit RSVP</button>
-        </>
+            <p><strong>Notes:</strong> <em>{familyGroup[0].comments}</em></p>
+            <button className="button button-primary" onClick={handleEditRSVP}>Edit RSVP</button>
+        </div>
     )
 }
 
