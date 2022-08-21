@@ -19,21 +19,23 @@ function Main() {
             <section className="details">
                 <h2>Details</h2>
                 <table>
-                    <tr>
-                        <th>Date: </th>
-                        <td>December 30, 2022</td>
-                    </tr>
-                    <tr>
-                        <th>Time: </th>
-                        <td>2:00 PM to 5:00 PM</td>
-                    </tr>
-                    <tr>
-                        <th>Where: </th>
-                        <td>{`The Beach House at Lake Temescal
-                            6500 Broadway Terrace
-                            Oakland, CA 94618`}
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>Date: </th>
+                            <td>December 30, 2022</td>
+                        </tr>
+                        <tr>
+                            <th>Time: </th>
+                            <td>2:00 PM to 5:00 PM</td>
+                        </tr>
+                        <tr>
+                            <th>Where: </th>
+                            <td>{`The Beach House at Lake Temescal
+                                6500 Broadway Terrace
+                                Oakland, CA 94618`}
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>  
             </section>
     </main>

@@ -1,7 +1,11 @@
 import LoadingSpinner from './LoadingSpinner'
+import CloseButton from './CloseButton'
+import { useState } from 'react'
 
-function EnterDetailsRadio( {responseLoaded, setResponseLoaded, familyGroup, setFamilyGroup } ) {
-      
+function EnterDetailsRadio( {familyGroup, setFamilyGroup, setSubmitted, setRsvpCommitted } ) {
+    
+    const [responseLoaded, setResponseLoaded] = useState(null)  
+
     const handleDetailsClick = () => {
       setResponseLoaded(false)
       const confirmDetailsWrapper = document.querySelector('.rsvp-form-container')
@@ -14,6 +18,7 @@ function EnterDetailsRadio( {responseLoaded, setResponseLoaded, familyGroup, set
       fetch('api', requestOptions)
         .then(response => response.json())
         .then(data => {
+          setRsvpCommitted(true)
           setResponseLoaded(true)
           confirmDetailsWrapper.classList.remove('loading')
           console.log(data)
@@ -55,9 +60,9 @@ function EnterDetailsRadio( {responseLoaded, setResponseLoaded, familyGroup, set
           </div>
           <label htmlFor="comments">Notes (optional):</label>
           <textarea id="comments" className="comments" name="comments" rows="5" value={familyGroup[0].comments} onChange={handleCommentsChange} />
-          <button type="button" className="button button-primary" onClick={handleDetailsClick}>Submit</button>
+          <button type="button" className="button button-primary" onClick={handleDetailsClick}>{responseLoaded == null || responseLoaded === true ? "Submit" : <LoadingSpinner />}</button>
+          <CloseButton setSubmitted={setSubmitted} />
         </div>
-        {responseLoaded == null || responseLoaded === true ? null : <LoadingSpinner />}
       </div>
     )
 }

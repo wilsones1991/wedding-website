@@ -30,6 +30,14 @@ header {
   /* outline: solid 1px red; */
 }
 
+input[type="text"] {
+  padding: 5px;
+}
+
+.flower {
+  flex: 1;
+}
+
 .flower img {
   max-width: 100%;
   max-height: 100%;
@@ -59,7 +67,7 @@ header {
   padding: 20px 0;
   font-size: 1.25rem;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 100;
 }
 
 .nav-background {
@@ -75,7 +83,7 @@ header {
   justify-content: space-around;
   align-items: center;
   flex: 1;
-  z-index: 10000;
+  z-index: 1000;
 }
 
 .nav-buffer {
@@ -180,15 +188,11 @@ p {
 
 .rsvp {
   margin-top: 30px;
-}
-
-.bottom-buffer {
-  min-height: 150px;
+  padding-bottom: 300px;
 }
 
 .rsvp-form-container {
   max-width: 30%;
-  max-height: 130px;
   margin: 0 auto 20px auto;
   border: solid 2px var(--main-font-color);
   border-radius: 10px;
@@ -226,8 +230,8 @@ p {
 }
 
 .card {
-  margin: 20px;
   font-size: 1.25rem;
+  max-width: 500px;
 }
 
 .card * {
@@ -241,8 +245,11 @@ p {
   text-align: left;
 }
 
-.confirm-details {
+.confirm-details, .show-details {
   position: relative;
+  background: var(--main-background-color);
+  padding: 20px;
+  width: 40vw;
 }
 
 .confirm-details * {
@@ -250,8 +257,9 @@ p {
 }
 
 .attendee-rsvp-container {
-  margin: 20px 0;
+  margin: 20px auto;
   padding: 0;
+  max-width: 80%;
 }
 
 .attendee-rsvp {
@@ -261,7 +269,7 @@ p {
 }
 
 .attendee-rsvp * {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
 }
 
@@ -276,11 +284,13 @@ p {
 
 .show-details * {
   font-size: 1.1rem;
+  margin: auto;
 }
 
 .comments {
   width: 100%;
   font-size: 1rem;
+  padding: 5px;
 }
 
 .comments:focus {
@@ -292,7 +302,7 @@ p {
   min-width: 100px;
   height: 35px;
   border: none;
-  padding: 5px;
+  /* padding: 5px; */
   color: rgb(255, 247, 247);
   border-radius: 5px;
 }
@@ -303,6 +313,22 @@ p {
 
 .button-primary {
   background: rgb(10, 167, 78);
+}
+
+.button-secondary {
+  background: rgb(176, 172, 172);
+  margin-left: 20px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  color: black;
+  margin: 0;
+  min-width: 0;
 }
 
 .animate {
@@ -326,7 +352,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:rgba(161, 157, 157, .5);
+  margin: 0;
 }
 
 .lds-spinner {
@@ -335,7 +361,7 @@ p {
   position: relative;
   width: 80px;
   height: 80px;
-  transform: scale(2);
+  transform: scale(.3) translateY(-10px) translateX(-10px);
 }
 .lds-spinner div {
   transform-origin: 40px 40px;
@@ -407,4 +433,10 @@ p {
   100% {
     opacity: 0;
   }
+}
+
+.frozen {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
 }
