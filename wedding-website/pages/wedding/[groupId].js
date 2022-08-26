@@ -10,7 +10,7 @@ export default function Loading( {setEditRsvpGroup} ) {
       useEffect(() => {
         if (!router.isReady) return
  
-        fetch(`https://wedding-website-server-360220.wl.r.appspot.com/api/api/${router.query.groupId}`)
+        fetch(`https://wedding-website-server-360220.wl.r.appspot.com/api/${router.query.groupId}`)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
