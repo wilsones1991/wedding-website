@@ -1,60 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const LastNameRequest = ({formData, setNeedFirstName, setFamilyGroup, invitees, setFormData, renderConfirm, needFirstName }) => {
-    
+function LastNameRequest ({formData, setFormData, needFirstName, waitForData, handleNameSubmit }) {
+
     const handleLastNameChange = (event) => {
-        setFormData({...formData, lastName: event.target.value})
+        setFormData(f => ({...f, lastName: event.target.value}))
       }
-    
-    const handleLastNameSubmit = () => {
-        const lastName = new RegExp(formData.lastName, 'i')
-        const invitee = invitees.filter(i => lastName.test(i.lastName))
-        if (invitee.length > 1) {
-            setFamilyGroup(invitee)
-            setNeedFirstName(true)
-            return
-        }
-        renderConfirm(invitee[0])
-    }
     
     return (
         <form id="get-party card" className="get-party">
         <div id="get-name">
             <label htmlFor="name">What is the last name on the invitation?</label>
             <div className="input-container">
-                <input value={formData.lastName} type="text" name="name" onChange={handleLastNameChange} onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault()
-                    handleLastNameSubmit()
-                }
+                <input id="last-name-input" value={formData.lastName} type="text" name="name" onChange={handleLastNameChange} onKeyDown={e => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault()
+                        if (formData.lastName.length > 0) {
+                            handleNameSubmit()
+                        }
+                    }
                 }}></input>
-                {needFirstName ? null : <button type="button" className="button button-primary" onClick={handleLastNameSubmit}>Submit</button>}
+                {needFirstName ? null : <button type="button" className="button button-primary" onClick={handleNameSubmit} disabled={formData.lastName === ''}>{waitForData ? 'Loading...' : 'Submit'}</button>}
             </div>
         </div>
     </form>
     )
 }
 
-const FirstNameRequest = ({formData, renderConfirm, setFormData, familyGroup, setNeedFirstName, handleLastNameSubmit, needFirstName, setNameMatchFailed}) => {
-    
+function FirstNameRequest ({formData, setFormData, needFirstName, handleNameSubmit}) {
+
     const handleFirstNameChange = (event) => {
-        setFormData({...formData, firstName: event.target.value})
+        setFormData(f => ({...f, firstName: event.target.value}))
       }
-    
-    const handleFirstNameSubmit = () => {
-        const firstName = new RegExp(formData.firstName, 'i')
-        const lastName = new RegExp(formData.lastName, 'i')
-        const invitee = familyGroup.filter(i => lastName.test(i.lastName)).filter(i => firstName.test(i.firstName))
-        console.log(invitee)
-        if (invitee.length > 0) {
-            setNeedFirstName(false)
-            console.log(invitee[0])
-            renderConfirm(invitee[0])
-        } else {
-            setNameMatchFailed(true)
-        }
-        
-    }
 
     if (needFirstName) {
         return (
@@ -62,13 +38,13 @@ const FirstNameRequest = ({formData, renderConfirm, setFormData, familyGroup, se
             <div id="get-first-name">
                 <label htmlFor="name">What is the first name on the invitation?</label>
                 <div className="input-container">
-                    <input value={formData.firstName} type="text" name="name" onChange={handleFirstNameChange} onKeyDown={(e) => {
+                    <input id="first-name-input" value={formData.firstName} type="text" name="name" autoFocus onChange={handleFirstNameChange} onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                         e.preventDefault()
-                        handleLastNameSubmit()
+                        handleNameSubmit()
                     }
                     }}></input>
-                    <button type="button" className="button button-primary" onClick={handleFirstNameSubmit}>Submit</button>
+                    <button type="button" className="button button-primary" disabled={formData.lastName === '' || formData.firstName === ''} onClick={handleNameSubmit}>Submit</button>
                 </div>
             </div>
         </form>
@@ -77,31 +53,72 @@ const FirstNameRequest = ({formData, renderConfirm, setFormData, familyGroup, se
     return null
 }
 
-function GetParty({ invitees, familyGroup, setFamilyGroup, setSubmitted, setRsvpCommitted }) {
+function NoMatch({nameMatchFailed}) {
+    if (nameMatchFailed) {
+        return (
+        <div className='no-match'>
+            <p>Hmm, we couldn't find a match for that name. Please try again or email us at <a className="email-link" href="mailto: wilsones1991@gmail.com" target="_blank">wilsones1991@gmail.com</a> to RSVP.</p>
+        </div>
+        )
+    }
+    return null
+}
+
+function GetParty({ invitees, familyGroup, setFamilyGroup, editRsvpGroup, formData, setFormData, renderConfirm }) {
     
-    const [formData, setFormData] = useState({
-        lastName: '',
-        firstName: ''
-      })
     const [needFirstName, setNeedFirstName] = useState(false)
     const [nameMatchFailed, setNameMatchFailed] = useState(false)
+    const [waitForData, setWaitForData] = useState(false)
 
-    const renderConfirm = (invitee) => {
-        const group = invitees.filter(i => i.groupID === invitee.groupID)
-        setFamilyGroup(group)
-        if (group.some(person => person.rsvp === "")) {
-            setRsvpCommitted(false)
+    const processName = () => {
+        setWaitForData(false)
+        const lastName = new RegExp(formData.lastName.trim(), 'i')
+            if (formData.firstName.length === 0) {
+                const invitee = invitees.filter(i => lastName.test(i.lastName))
+            if (invitee.length > 1) {
+                setFamilyGroup(invitee)
+                setNameMatchFailed(false)
+                setNeedFirstName(true)
+                return
+            }
+            if (invitee.length === 0) {
+                setNameMatchFailed(true)
+                return
+            }
+            renderConfirm(invitee[0])
         } else {
-            setRsvpCommitted(true)
+            const firstName = new RegExp(formData.firstName.trim(), 'i')
+            const invitee = familyGroup.filter(i => lastName.test(i.lastName)).filter(i => firstName.test(i.firstName))
+            if (invitee.length > 0) {
+                setNameMatchFailed(false)
+                setNeedFirstName(false)
+                renderConfirm(invitee[0])
+            } else {
+                setNameMatchFailed(true)
+            }   
         }
-        setSubmitted(true)
-        document.querySelector('body').style.cssText = `overflow: hidden;`
     }
+
+    const handleNameSubmit = () => {
+
+        if (invitees == null) {
+            setWaitForData(true)
+        } else {
+            processName()
+        }
+    }
+
+    useEffect(() => {
+        if (invitees != null && waitForData) {
+                processName()
+            }
+        })
 
     return (
         <div>
-            <LastNameRequest formData={formData} renderConfirm={renderConfirm} setNeedFirstName={setNeedFirstName} setFamilyGroup={setFamilyGroup} invitees={invitees} setFormData={setFormData} needFirstName={needFirstName} />
-            <FirstNameRequest formData={formData} setFormData={setFormData} familyGroup={familyGroup} setNeedFirstName={setNeedFirstName} setFamilyGroup={setFamilyGroup} renderConfirm={renderConfirm} needFirstName={needFirstName} setNameMatchFailed={setNameMatchFailed} />
+            <LastNameRequest formData={formData} setFormData={setFormData} needFirstName={needFirstName} waitForData={waitForData} handleNameSubmit={handleNameSubmit} />
+            <FirstNameRequest formData={formData} setFormData={setFormData} setFamilyGroup={setFamilyGroup} needFirstName={needFirstName} handleNameSubmit={handleNameSubmit} />
+            <NoMatch nameMatchFailed={nameMatchFailed} />
         </div>
         
     )

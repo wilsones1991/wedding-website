@@ -1,14 +1,24 @@
 import CloseButton from './CloseButton'
 
-function ShowDetails( { familyGroup, setSubmitted, setRsvpCommitted } ) {
-    
+function ShowDetails( { familyGroup, setFamilyGroup, setSubmitted, setRsvpCommitted, setFormData, editRsvpGroup, setEditRsvpGroup, setShowRsvpDetails } ) {
+
     const handleEditRSVP = () => {
         setRsvpCommitted(false)
     }
 
     const handleClose = () => {
         setSubmitted(false)
+        setRsvpCommitted(false)
+        setShowRsvpDetails(false)
+        setFamilyGroup(f => {
+            f.forEach(person => person.rsvp = '')
+            return f})
+        if (editRsvpGroup && editRsvpGroup.length > 0) {
+            setEditRsvpGroup([])
+        }
         document.querySelector('body').style.cssText = `overflow: visible;`
+        document.querySelector('html').style.overflow = 'visible'
+        setFormData(f => ({...f, firstName: '', lastName: '', email: '', comments: ''}))
     }
     
     return (
@@ -33,9 +43,13 @@ function ShowDetails( { familyGroup, setSubmitted, setRsvpCommitted } ) {
                 </tbody>
             </table>
             <p><strong>Notes:</strong> <em>{familyGroup[0].comments}</em></p>
-            <button className="button button-primary" onClick={handleClose}>Done</button>
-            <button className="button button-secondary" onClick={handleEditRSVP}>Edit RSVP</button>
-            <CloseButton setSubmitted={setSubmitted} />
+            <CloseButton setSubmitted={setSubmitted} setFormData={setFormData} editRsvpGroup={editRsvpGroup} setEditRsvpGroup={setEditRsvpGroup} setRsvpCommitted={setRsvpCommitted} setShowRsvpDetails={setShowRsvpDetails} setFamilyGroup={setFamilyGroup} />
+            <div>
+                <button className="button button-primary" onClick={handleClose}>Done</button>
+                <button className="button button-secondary" onClick={handleEditRSVP}>Edit RSVP</button>
+            </div>
+            
+            
         </div>
     )
 }
