@@ -42,6 +42,7 @@ function RSVPform({editRsvpGroup, setEditRsvpGroup}) {
       setShowRsvpDetails(true)
       setFamilyGroup(editRsvpGroup)
       setSubmitted(true)
+      setFormData(editRsvpGroup[0].email)
       document.querySelector('html').style.overflow = 'hidden'
       document.querySelector('body').style.overflow = 'hidden'
     }

@@ -72,7 +72,6 @@ function EnterDetailsRadio( {familyGroup, setFamilyGroup, setSubmitted, setRsvpC
       newFamilyGroup.forEach(person => person.comments = event.target.value)
       setFamilyGroup(newFamilyGroup)
       setFormData({...formData, comments: event.target.value})
-      console.log(event.target.value)
     }
 
     const handleEmailChange = (e) => {
