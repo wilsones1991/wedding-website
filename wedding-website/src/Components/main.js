@@ -35,8 +35,8 @@ function Main() {
                         North Carolina. We then returned to in person teaching
                         for the 2021-22 school year and we supported students in
                         readjusting to life at school. Most recently, we spent
-                        the most recent summer traveling in New Zealand finally
-                        being able to visit Kylie’s sister Meredith.
+                        the summer traveling in New Zealand finally being able
+                        to visit Kylie’s sister Meredith.
                     </p>
                     <p>
                         On April 6, 2022, Eric proposed to Kylie at the end of
