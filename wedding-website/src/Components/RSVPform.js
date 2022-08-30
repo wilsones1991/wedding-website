@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import GetParty, {
-    LastNameRequest,
-    FirstNameRequest,
-    NoMatch
-} from './GetParty'
+import GetParty from './GetParty'
+
 import EnterDetailsRadio from './EnterDetailsRadio'
 import ShowDetails from './ShowDetails'
 
@@ -50,6 +47,38 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
         }
     }, [editRsvpGroup])
 
+    const enterDetailsRadio = (
+        <EnterDetailsRadio
+            setSubmitted={setSubmitted}
+            familyGroup={familyGroup}
+            setFamilyGroup={setFamilyGroup}
+            rsvpCommitted={rsvpCommitted}
+            setRsvpCommitted={setRsvpCommitted}
+            formData={formData}
+            setFormData={setFormData}
+            showRsvpDetails={showRsvpDetails}
+            setShowRsvpDetails={setShowRsvpDetails}
+            editRsvpGroup={editRsvpGroup}
+            setEditRsvpGroup={setEditRsvpGroup}
+        />
+    )
+
+    const showDetails = (
+        <ShowDetails
+            setSubmitted={setSubmitted}
+            familyGroup={familyGroup}
+            setFamilyGroup={setFamilyGroup}
+            rsvpCommitted={rsvpCommitted}
+            setRsvpCommitted={setRsvpCommitted}
+            formData={formData}
+            setFormData={setFormData}
+            showRsvpDetails={showRsvpDetails}
+            setShowRsvpDetails={setShowRsvpDetails}
+            editRsvpGroup={editRsvpGroup}
+            setEditRsvpGroup={setEditRsvpGroup}
+        />
+    )
+
     return (
         <section id="rsvp" className="rsvp">
             <h2>RSVP</h2>
@@ -67,17 +96,9 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
             </div>
             <ConfirmRSVPDetails
                 submitted={submitted}
-                setSubmitted={setSubmitted}
-                familyGroup={familyGroup}
-                setFamilyGroup={setFamilyGroup}
                 rsvpCommitted={rsvpCommitted}
-                setRsvpCommitted={setRsvpCommitted}
-                formData={formData}
-                setFormData={setFormData}
-                showRsvpDetails={showRsvpDetails}
-                setShowRsvpDetails={setShowRsvpDetails}
-                editRsvpGroup={editRsvpGroup}
-                setEditRsvpGroup={setEditRsvpGroup}
+                enterDetailsRadio={enterDetailsRadio}
+                showDetails={showDetails}
             />
         </section>
     )
@@ -85,17 +106,9 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
 
 function ConfirmRSVPDetails({
     submitted,
-    familyGroup,
-    setFamilyGroup,
-    setSubmitted,
     rsvpCommitted,
-    setRsvpCommitted,
-    formData,
-    setFormData,
-    showRsvpDetails,
-    editRsvpGroup,
-    setEditRsvpGroup,
-    setShowRsvpDetails
+    enterDetailsRadio,
+    showDetails
 }) {
     const confirmDetailsStyle = {
         position: 'fixed',
@@ -116,38 +129,9 @@ function ConfirmRSVPDetails({
     }
 
     if (rsvpCommitted) {
-        return (
-            <div style={confirmDetailsStyle}>
-                <ShowDetails
-                    familyGroup={familyGroup}
-                    setFamilyGroup={setFamilyGroup}
-                    setRsvpCommitted={setRsvpCommitted}
-                    setSubmitted={setSubmitted}
-                    setFormData={setFormData}
-                    editRsvpGroup={editRsvpGroup}
-                    setEditRsvpGroup={setEditRsvpGroup}
-                    setShowRsvpDetails={setShowRsvpDetails}
-                />
-            </div>
-        )
+        return <div style={confirmDetailsStyle}>{showDetails}</div>
     }
-
-    return (
-        <div style={confirmDetailsStyle}>
-            <EnterDetailsRadio
-                setRsvpCommitted={setRsvpCommitted}
-                familyGroup={familyGroup}
-                setFamilyGroup={setFamilyGroup}
-                setSubmitted={setSubmitted}
-                formData={formData}
-                setFormData={setFormData}
-                showRsvpDetails={showRsvpDetails}
-                editRsvpGroup={editRsvpGroup}
-                setEditRsvpGroup={setEditRsvpGroup}
-                setShowRsvpDetails={setShowRsvpDetails}
-            />
-        </div>
-    )
+    return <div style={confirmDetailsStyle}>{enterDetailsRadio}</div>
 }
 
 export default RSVPform
