@@ -19,10 +19,10 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
         navBackground.style.height = docHeight + 'px'
 
         const handleScroll = () => {
-            if (window.pageYOffset > sticky) {
+            if (window.scrollY > sticky) {
                 navbar.classList.add('sticky')
                 navBackground.style.transform =
-                    'translateY(-' + window.pageYOffset + 'px)'
+                    'translateY(-' + window.scrollY + 'px)'
                 navBackground.style.zIndex = 0
             } else {
                 navbar.classList.remove('sticky')
