@@ -23,8 +23,10 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
                 navbar.classList.add('sticky')
                 navBackground.style.transform =
                     'translateY(-' + window.pageYOffset + 'px)'
+                navBackground.style.zIndex = 0
             } else {
                 navbar.classList.remove('sticky')
+                navBackground.style.zIndex = -100
             }
         }
 
