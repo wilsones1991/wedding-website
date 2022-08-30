@@ -29,8 +29,6 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
             navBackground.style.height = docHeight + 'px'
 
             const handleScroll = () => {
-                console.log(sticky)
-                console.log(window.scrollY)
                 if (window.scrollY > sticky) {
                     navbar.classList.add('sticky')
                     navBackground.style.transform =
@@ -57,7 +55,7 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
     return (
         <>
             <Head>
-                <title>Kylie and Eric&apos;s Wedding</title>
+                <title>Kylie and Eric's Wedding</title>
             </Head>
             <Header />
             <Navbar />
