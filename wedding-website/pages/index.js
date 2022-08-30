@@ -10,39 +10,47 @@ import React, { useEffect } from 'react'
 
 export default function App({ editRsvpGroup, setEditRsvpGroup }) {
     useEffect(() => {
-        const getOffsetTop = (element) => {
-            let offsetTop = 0
-            while (element) {
-                offsetTop += element.offsetTop
-                element = element.offsetParent
+        const stickyNavbar = () => {
+            const getOffsetTop = (element) => {
+                let offsetTop = 0
+                while (element) {
+                    offsetTop += element.offsetTop
+                    element = element.offsetParent
+                }
+                return offsetTop
             }
-            return offsetTop
+
+            const navbar = document.querySelector('.navbar')
+            const navBackground = document.querySelector('.nav-background')
+            const docHeight = document.body.clientHeight
+            const sticky = getOffsetTop(navbar)
+
+            navBackground.style.transform = 'translateY(-' + sticky + 'px)'
+            navBackground.style.height = docHeight + 'px'
+
+            const handleScroll = () => {
+                console.log(sticky)
+                console.log(window.scrollY)
+                if (window.scrollY > sticky) {
+                    navbar.classList.add('sticky')
+                    navBackground.style.transform =
+                        'translateY(-' + window.scrollY + 'px)'
+                    navBackground.style.zIndex = 0
+                } else {
+                    navbar.classList.remove('sticky')
+                    navBackground.style.zIndex = -100
+                }
+            }
+            window.addEventListener('scroll', handleScroll)
         }
 
-        const navbar = document.querySelector('.navbar')
-        const navBackground = document.querySelector('.nav-background')
-        const docHeight = document.body.clientHeight
-        const sticky = getOffsetTop(navbar)
-
-        navBackground.style.transform = 'translateY(-' + sticky + 'px)'
-        navBackground.style.height = docHeight + 'px'
-
-        const handleScroll = () => {
-            console.log(sticky)
-            console.log(window.scrollY)
-            if (window.scrollY > sticky) {
-                navbar.classList.add('sticky')
-                navBackground.style.transform =
-                    'translateY(-' + window.scrollY + 'px)'
-                navBackground.style.zIndex = 0
-            } else {
-                navbar.classList.remove('sticky')
-                navBackground.style.zIndex = -100
-            }
+        if (document.readyState === 'complete') {
+            stickyNavbar()
+        } else {
+            window.addEventListener('load', stickyNavbar)
         }
-        window.addEventListener('scroll', handleScroll)
         return () => {
-            window.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('load', stickyNavbar)
         }
     }, [])
 
