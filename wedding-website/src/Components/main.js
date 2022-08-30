@@ -31,12 +31,12 @@ function Main() {
                         families grew closer. We were thrilled to finally be
                         able to safely fly again and we spent the month of July
                         2021 visiting Eric's family and friends in Nashville and
-                        Rugby, TN; Yellow Springs, Ohio; and finally Asheville,
-                        NC. We then returned to in person teaching for the
-                        2021-22 school year and we supported students in
-                        readjusting to life at school. We then spent the most
-                        recent summer traveling in New Zealand finally being
-                        able to visit Kylie’s sister Meredith.
+                        Rugby, Tennessee; Yellow Springs, Ohio; and Asheville,
+                        North Carolina. We then returned to in person teaching
+                        for the 2021-22 school year and we supported students in
+                        readjusting to life at school. Most recently, we spent
+                        the most recent summer traveling in New Zealand finally
+                        being able to visit Kylie’s sister Meredith.
                     </p>
                     <p>
                         On April 6, 2022, Eric proposed to Kylie at the end of
