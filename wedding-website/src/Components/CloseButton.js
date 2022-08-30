@@ -1,5 +1,12 @@
-function CloseButton({setSubmitted, setFormData, setEditRsvpGroup, editRsvpGroup, setRsvpCommitted, setShowRsvpDetails, setFamilyGroup}) {
-    
+function CloseButton({
+    setSubmitted,
+    setFormData,
+    setEditRsvpGroup,
+    editRsvpGroup,
+    setRsvpCommitted,
+    setShowRsvpDetails,
+    setFamilyGroup
+}) {
     const handleClick = () => {
         setSubmitted(false)
         setRsvpCommitted(false)
@@ -9,14 +16,27 @@ function CloseButton({setSubmitted, setFormData, setEditRsvpGroup, editRsvpGroup
         }
         document.querySelector('body').style.cssText = `overflow: visible;`
         document.querySelector('html').style.overflow = 'visible'
-        setFormData(f => ({...f, firstName: '', lastName: '', email: '', comments: ''}))
-        setFamilyGroup(f => {
-            f.forEach(person => person.rsvp = '')
-            return f})
+        setFormData((f) => ({
+            ...f,
+            firstName: '',
+            lastName: '',
+            email: '',
+            comments: ''
+        }))
+        setFamilyGroup((f) => {
+            f.forEach((person) => (person.rsvp = ''))
+            return f
+        })
     }
-    
+
     return (
-        <button className="button close-button" onClick={handleClick}>X</button>
+        <button
+            type="button"
+            className="button close-button"
+            onClick={handleClick}
+        >
+            X
+        </button>
     )
 }
 
