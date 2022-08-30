@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
-function LastNameRequest({
+export const LastNameRequest = ({
     formData,
     setFormData,
     needFirstName,
     waitForData,
     handleNameSubmit
-}) {
+}) => {
     const handleLastNameChange = (event) => {
         setFormData((f) => ({ ...f, lastName: event.target.value }))
     }
@@ -44,12 +44,12 @@ function LastNameRequest({
     )
 }
 
-function FirstNameRequest({
+export const FirstNameRequest = ({
     formData,
     setFormData,
     needFirstName,
     handleNameSubmit
-}) {
+}) => {
     const handleFirstNameChange = (event) => {
         setFormData((f) => ({ ...f, firstName: event.target.value }))
     }
@@ -92,7 +92,7 @@ function FirstNameRequest({
     return null
 }
 
-function NoMatch({ nameMatchFailed }) {
+export const NoMatch = ({ nameMatchFailed }) => {
     if (nameMatchFailed) {
         return (
             <div className="no-match">
@@ -118,7 +118,6 @@ function GetParty({
     invitees,
     familyGroup,
     setFamilyGroup,
-    editRsvpGroup,
     formData,
     setFormData,
     renderConfirm

@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import GetParty from './GetParty'
+import GetParty, {
+    LastNameRequest,
+    FirstNameRequest,
+    NoMatch
+} from './GetParty'
 import EnterDetailsRadio from './EnterDetailsRadio'
 import ShowDetails from './ShowDetails'
 
@@ -52,11 +56,9 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
             <div id="bottom-buffer" className="bottom-buffer">
                 <div id="rsvp-form-container" className="rsvp-form-container">
                     <GetParty
-                        setSubmitted={setSubmitted}
                         familyGroup={familyGroup}
                         setFamilyGroup={setFamilyGroup}
                         invitees={invitees}
-                        setRsvpCommitted={setRsvpCommitted}
                         formData={formData}
                         setFormData={setFormData}
                         renderConfirm={renderConfirm}
@@ -73,9 +75,9 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
                 formData={formData}
                 setFormData={setFormData}
                 showRsvpDetails={showRsvpDetails}
+                setShowRsvpDetails={setShowRsvpDetails}
                 editRsvpGroup={editRsvpGroup}
                 setEditRsvpGroup={setEditRsvpGroup}
-                setShowRsvpDetails={setShowRsvpDetails}
             />
         </section>
     )
