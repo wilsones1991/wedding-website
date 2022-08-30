@@ -25,6 +25,8 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
             const docHeight = document.body.clientHeight
             const sticky = getOffsetTop(navbar)
 
+            console.log(sticky)
+
             navBackground.style.transform = 'translateY(-' + sticky + 'px)'
             navBackground.style.height = docHeight + 'px'
 
@@ -50,7 +52,7 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
         return () => {
             window.removeEventListener('load', stickyNavbar)
         }
-    }, [])
+    }, [editRsvpGroup])
 
     return (
         <>
