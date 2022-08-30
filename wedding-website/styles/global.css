@@ -139,7 +139,6 @@ a {
     left: 0;
     width: 100%;
     background: var(--main-background);
-    z-index: -100;
 }
 
 .nav-main {
