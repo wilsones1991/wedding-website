@@ -10,15 +10,26 @@ import React, { useEffect } from 'react'
 
 export default function App({ editRsvpGroup, setEditRsvpGroup }) {
     useEffect(() => {
+        const getOffsetTop = (element) => {
+            let offsetTop = 0
+            while (element) {
+                offsetTop += element.offsetTop
+                element = element.offsetParent
+            }
+            return offsetTop
+        }
+
         const navbar = document.querySelector('.navbar')
         const navBackground = document.querySelector('.nav-background')
         const docHeight = document.body.clientHeight
-        const sticky = navbar.offsetTop
+        const sticky = getOffsetTop(navbar)
 
         navBackground.style.transform = 'translateY(-' + sticky + 'px)'
         navBackground.style.height = docHeight + 'px'
 
         const handleScroll = () => {
+            console.log(sticky)
+            console.log(window.scrollY)
             if (window.scrollY > sticky) {
                 navbar.classList.add('sticky')
                 navBackground.style.transform =
