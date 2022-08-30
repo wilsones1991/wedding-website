@@ -9,16 +9,16 @@ function Main() {
                     <h2>Our Story</h2>
                     <p>
                         We had the great fortune to meet just weeks before the
-                        Pandemic took hold of the world. Over the course of just
+                        pandemic took hold of the world. Over the course of just
                         a few weeks, our dates quickly transitioned from cider
                         tasting in Sonoma, skiing in Shasta, and discussing
-                        Eric's tour logistics at breweries; to setting up lawn
+                        Eric's tour logistics at breweries to setting up lawn
                         chairs in the driveway 6 feet apart and reassuring each
                         other that the world be back to “normal” soon. As the
                         weeks passed and both the virus and the CDC guidelines
                         evolved, our relationship did too. By late Spring 2020,
-                        we accepted that “normal” was a thing of the past and we
-                        officially became a part of each others bubble.
+                        we accepted that “normal” was a thing of the past, and
+                        we officially became a part of each others bubble.
                     </p>
                     <p>
                         From that pivotal point, we were rarely more than six
@@ -29,14 +29,14 @@ function Main() {
                         our new role as virtual educators/tech support for our
                         students. As time passed, our bubble grew larger and our
                         families grew closer. We were thrilled to finally be
-                        able to safely fly again and we spent the month of July
+                        able to safely fly again, and we spent the month of July
                         2021 visiting Eric's family and friends in Nashville and
                         Rugby, Tennessee; Yellow Springs, Ohio; and Asheville,
-                        North Carolina. We then returned to in person teaching
-                        for the 2021-22 school year and we supported students in
-                        readjusting to life at school. Most recently, we spent
-                        the summer traveling in New Zealand finally being able
-                        to visit Kylie’s sister Meredith.
+                        North Carolina. We then returned to in-person teaching
+                        for the 2021-22 school year, and we supported students
+                        in readjusting to life at school. Most recently, we
+                        spent the summer traveling in New Zealand finally being
+                        able to visit Kylie's sister Meredith.
                     </p>
                     <p>
                         On April 6, 2022, Eric proposed to Kylie at the end of
