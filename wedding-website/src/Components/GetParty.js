@@ -31,7 +31,7 @@ function LastNameRequest({
                     ></input>
                     {needFirstName ? null : (
                         <button
-                            type="button"
+                            type="submit"
                             className="button button-primary"
                             disabled={formData.lastName === ''}
                         >
