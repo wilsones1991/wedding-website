@@ -47,35 +47,46 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
         }
     }, [editRsvpGroup])
 
+    const handleClose = () => {
+        setSubmitted(false)
+        setRsvpCommitted(false)
+        setShowRsvpDetails(false)
+        setFamilyGroup((f) => {
+            f.forEach((person) => (person.rsvp = ''))
+            return f
+        })
+        if (editRsvpGroup && editRsvpGroup.length > 0) {
+            setEditRsvpGroup([])
+        }
+        document.querySelector('body').style.cssText = `overflow: visible;`
+        document.querySelector('html').style.overflow = 'visible'
+        setFormData((f) => ({
+            ...f,
+            firstName: '',
+            lastName: '',
+            email: '',
+            comments: ''
+        }))
+    }
+
     const enterDetailsRadio = (
         <EnterDetailsRadio
-            setSubmitted={setSubmitted}
             familyGroup={familyGroup}
             setFamilyGroup={setFamilyGroup}
             rsvpCommitted={rsvpCommitted}
-            setRsvpCommitted={setRsvpCommitted}
             formData={formData}
             setFormData={setFormData}
             showRsvpDetails={showRsvpDetails}
-            setShowRsvpDetails={setShowRsvpDetails}
-            editRsvpGroup={editRsvpGroup}
-            setEditRsvpGroup={setEditRsvpGroup}
+            setRsvpCommitted={setRsvpCommitted}
+            handleClose={handleClose}
         />
     )
 
     const showDetails = (
         <ShowDetails
-            setSubmitted={setSubmitted}
             familyGroup={familyGroup}
-            setFamilyGroup={setFamilyGroup}
-            rsvpCommitted={rsvpCommitted}
             setRsvpCommitted={setRsvpCommitted}
-            formData={formData}
-            setFormData={setFormData}
-            showRsvpDetails={showRsvpDetails}
-            setShowRsvpDetails={setShowRsvpDetails}
-            editRsvpGroup={editRsvpGroup}
-            setEditRsvpGroup={setEditRsvpGroup}
+            handleClose={handleClose}
         />
     )
 

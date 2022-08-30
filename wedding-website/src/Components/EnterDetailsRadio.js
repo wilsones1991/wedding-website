@@ -5,22 +5,17 @@ import { useEffect, useState } from 'react'
 function EnterDetailsRadio({
     familyGroup,
     setFamilyGroup,
-    setSubmitted,
     setRsvpCommitted,
     formData,
     setFormData,
     showRsvpDetails,
-    setEditRsvpGroup,
-    editRsvpGroup,
-    setShowRsvpDetails
+    handleClose
 }) {
     const [responseLoaded, setResponseLoaded] = useState(null)
     const [disabled, setDisabled] = useState(true)
     const [showEmailError, setShowEmailError] = useState('hidden')
 
     const handleDetailsClick = (e) => {
-        console.log('made it here')
-        console.log(familyGroup[0])
         e.preventDefault()
         if (disabled) return
         setResponseLoaded(false)
@@ -217,15 +212,7 @@ function EnterDetailsRadio({
                             <LoadingSpinner />
                         )}
                     </button>
-                    <CloseButton
-                        setSubmitted={setSubmitted}
-                        setFormData={setFormData}
-                        editRsvpGroup={editRsvpGroup}
-                        setEditRsvpGroup={setEditRsvpGroup}
-                        setRsvpCommitted={setRsvpCommitted}
-                        setShowRsvpDetails={setShowRsvpDetails}
-                        setFamilyGroup={setFamilyGroup}
-                    />
+                    <CloseButton handleClose={handleClose} />
                 </form>
             </div>
         </div>
