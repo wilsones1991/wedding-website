@@ -1,3 +1,5 @@
+import React from 'react'
+
 function Header() {
     return (
         <header>
@@ -7,7 +9,7 @@ function Header() {
             <div className="names">
                 <img src="/images/Names.png" alt="" />
             </div>
-            
+
             <div className="flower right">
                 <img src="/images/top-right-cropped.png" alt="" />
             </div>
