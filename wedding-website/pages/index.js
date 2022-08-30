@@ -5,7 +5,7 @@ import Navbar from '../src/Components/navbar'
 import Main from '../src/Components/main'
 import RSVPform from '../src/Components/RSVPform'
 import Carousel from '../src/Components/carousel'
-import Footer from '../src/Components/footer'
+import Footer from '../src/Components/Footer'
 import React, { useEffect } from 'react'
 
 export default function App({ editRsvpGroup, setEditRsvpGroup }) {
