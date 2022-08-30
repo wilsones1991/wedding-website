@@ -56,7 +56,11 @@ function FirstNameRequest({
 
     if (needFirstName) {
         return (
-            <form id="get-first-name" className="get-party">
+            <form
+                id="get-first-name"
+                className="get-party"
+                onSubmit={handleNameSubmit}
+            >
                 <div id="get-first-name">
                     <label htmlFor="name">
                         What is the first name on the invitation?
@@ -69,21 +73,14 @@ function FirstNameRequest({
                             name="name"
                             autoFocus
                             onChange={handleFirstNameChange}
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    e.preventDefault()
-                                    handleNameSubmit()
-                                }
-                            }}
                         ></input>
                         <button
-                            type="button"
+                            type="submit"
                             className="button button-primary"
                             disabled={
                                 formData.lastName === '' ||
                                 formData.firstName === ''
                             }
-                            onClick={handleNameSubmit}
                         >
                             Submit
                         </button>
@@ -163,7 +160,10 @@ function GetParty({
 
     const handleNameSubmit = (event) => {
         event.preventDefault()
-        if (formData.lastName === '') {
+        if (
+            formData.lastName === '' ||
+            (needFirstName && formData.firstName === '')
+        ) {
             return
         }
         if (invitees == null) {
