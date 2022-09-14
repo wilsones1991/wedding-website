@@ -27,7 +27,7 @@ function EnterDetailsRadio({
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials:': '*'
+                'Access-Control-Allow-Credentials': '*'
             },
             body: JSON.stringify({ familyGroup })
         }
@@ -43,7 +43,10 @@ function EnterDetailsRadio({
             })
         const emailRequestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials': '*'
+            },
             body: JSON.stringify({ familyGroup })
         }
         fetch(
