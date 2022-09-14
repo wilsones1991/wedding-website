@@ -29,7 +29,7 @@ function EnterDetailsRadio({
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ familyGroup })
+            body: JSON.stringify(familyGroup)
         }
         fetch(
             'https://wedding-website-server-360220.wl.r.appspot.com/api',
@@ -47,7 +47,7 @@ function EnterDetailsRadio({
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ familyGroup })
+            body: JSON.stringify(familyGroup)
         }
         fetch(
             'https://wedding-website-server-360220.wl.r.appspot.com/api/mail',
