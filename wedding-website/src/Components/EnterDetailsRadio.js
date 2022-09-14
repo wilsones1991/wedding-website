@@ -53,7 +53,10 @@ function EnterDetailsRadio({
             'https://wedding-website-server-360220.wl.r.appspot.com/api/mail',
             emailRequestOptions
         )
-            .then((response) => response.json())
+            .then((response) => {
+                console.log(response)
+                response.json()
+            })
             .then((data) => {
                 console.log(data)
             })
