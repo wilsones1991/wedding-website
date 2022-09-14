@@ -25,6 +25,7 @@ function EnterDetailsRadio({
         confirmDetailsWrapper.classList.add('loading')
         const requestOptions = {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -42,6 +43,7 @@ function EnterDetailsRadio({
             })
         const emailRequestOptions = {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
