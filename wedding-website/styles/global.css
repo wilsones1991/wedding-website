@@ -9,10 +9,15 @@
     --secondary-font-color: rgb(161, 157, 157);
 }
 
+@font-face {
+    font-family: futura;
+    src: url('/fonts/futura/futura medium bt.ttf');
+}
+
 *,
 *::before,
 *::after {
-    font-family: 'Open Sans', sans-serif;
+    font-family: futura;
     color: var(--main-font-color);
     box-sizing: border-box;
     margin: 0;
