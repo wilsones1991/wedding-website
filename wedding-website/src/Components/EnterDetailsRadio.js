@@ -56,7 +56,7 @@ function EnterDetailsRadio({
         )
             .then((response) => {
                 console.log('response', response)
-                response.json()
+                return response.json()
             })
             .then((data) => {
                 console.log(data)
