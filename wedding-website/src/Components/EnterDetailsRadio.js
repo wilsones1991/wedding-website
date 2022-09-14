@@ -27,7 +27,7 @@ function EnterDetailsRadio({
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials': '*'
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ familyGroup })
         }
@@ -45,7 +45,7 @@ function EnterDetailsRadio({
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Credentials': '*'
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify({ familyGroup })
         }
