@@ -41,7 +41,6 @@ function EnterDetailsRadio({
                 setResponseLoaded(true)
                 confirmDetailsWrapper.classList.remove('loading')
             })
-        console.log(familyGroup)
         const emailRequestOptions = {
             method: 'POST',
             mode: 'cors',
@@ -50,12 +49,13 @@ function EnterDetailsRadio({
             },
             body: JSON.stringify(familyGroup)
         }
+        console.log('familyGroup', familyGroup)
         fetch(
             'https://wedding-website-server-360220.wl.r.appspot.com/api/mail',
             emailRequestOptions
         )
             .then((response) => {
-                console.log(response)
+                console.log('response', response)
                 response.json()
             })
             .then((data) => {
