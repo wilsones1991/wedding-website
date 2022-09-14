@@ -41,6 +41,7 @@ function EnterDetailsRadio({
                 setResponseLoaded(true)
                 confirmDetailsWrapper.classList.remove('loading')
             })
+        console.log(familyGroup)
         const emailRequestOptions = {
             method: 'POST',
             mode: 'cors',
