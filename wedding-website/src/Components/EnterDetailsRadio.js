@@ -25,7 +25,10 @@ function EnterDetailsRadio({
         confirmDetailsWrapper.classList.add('loading')
         const requestOptions = {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Credentials:': '*'
+            },
             body: JSON.stringify({ familyGroup })
         }
         fetch(
