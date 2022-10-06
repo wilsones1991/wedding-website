@@ -132,7 +132,6 @@ function GetParty({
         if (formData.firstName.length === 0) {
             const invitee = invitees.filter((i) => lastName.test(i.lastName))
             if (invitee.length > 1) {
-                setFamilyGroup(invitee)
                 setNameMatchFailed(false)
                 setNeedFirstName(true)
                 return
@@ -144,7 +143,7 @@ function GetParty({
             renderConfirm(invitee[0])
         } else {
             const firstName = new RegExp(formData.firstName.trim(), 'i')
-            const invitee = familyGroup
+            const invitee = invitees
                 .filter((i) => lastName.test(i.lastName))
                 .filter((i) => firstName.test(i.firstName))
             if (invitee.length > 0) {

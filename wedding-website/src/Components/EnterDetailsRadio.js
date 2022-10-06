@@ -49,18 +49,10 @@ function EnterDetailsRadio({
             },
             body: JSON.stringify(familyGroup)
         }
-        console.log('familyGroup', familyGroup)
         fetch(
             'https://wedding-website-server-360220.wl.r.appspot.com/api/mail',
             emailRequestOptions
         )
-            .then((response) => {
-                console.log('response', response)
-                return response.json()
-            })
-            .then((data) => {
-                console.log(data)
-            })
     }
 
     const validateEmail = (email) => {

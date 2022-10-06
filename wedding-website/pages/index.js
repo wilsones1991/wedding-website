@@ -11,27 +11,17 @@ import React, { useEffect } from 'react'
 export default function App({ editRsvpGroup, setEditRsvpGroup }) {
     useEffect(() => {
         const stickyNavbar = () => {
-            const getOffsetTop = (element) => {
-                let offsetTop = 0
-                while (element) {
-                    offsetTop += element.offsetTop
-                    element = element.offsetParent
-                }
-                return offsetTop
-            }
-
             const navbar = document.querySelector('.navbar')
             const navBackground = document.querySelector('.nav-background')
             const docHeight = document.body.clientHeight
-            const sticky = getOffsetTop(navbar)
-
-            console.log(sticky)
+            const sticky =
+                window.pageYOffset + navbar.getBoundingClientRect().top
 
             navBackground.style.transform = 'translateY(-' + sticky + 'px)'
             navBackground.style.height = docHeight + 'px'
 
             const handleScroll = () => {
-                if (window.scrollY > sticky) {
+                if (window.scrollY > sticky + 5) {
                     navbar.classList.add('sticky')
                     navBackground.style.transform =
                         'translateY(-' + window.scrollY + 'px)'
@@ -44,15 +34,8 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
             window.addEventListener('scroll', handleScroll)
         }
 
-        if (document.readyState === 'complete') {
-            stickyNavbar()
-        } else {
-            window.addEventListener('load', stickyNavbar)
-        }
-        return () => {
-            window.removeEventListener('load', stickyNavbar)
-        }
-    }, [editRsvpGroup])
+        setTimeout(stickyNavbar, 500)
+    }, [])
 
     return (
         <>

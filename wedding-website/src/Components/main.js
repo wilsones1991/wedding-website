@@ -13,12 +13,13 @@ function Main() {
                         a few weeks, our dates quickly transitioned from cider
                         tasting in Sonoma, skiing in Shasta, and discussing
                         Eric's tour logistics at breweries to setting up lawn
-                        chairs in the driveway 6 feet apart and reassuring each
-                        other that the world be back to “normal” soon. As the
-                        weeks passed and both the virus and the CDC guidelines
-                        evolved, our relationship did too. By late Spring 2020,
-                        we accepted that “normal” was a thing of the past, and
-                        we officially became a part of each others bubble.
+                        chairs in the driveway 6 feet apart. Instead, we
+                        reassured each other that the world be back to “normal”
+                        soon. As the weeks passed and both the virus and the CDC
+                        guidelines evolved, our relationship did too. By late
+                        Spring 2020, we accepted that “normal” was a thing of
+                        the past, and we officially became a part of each others
+                        bubble.
                     </p>
                     <p>
                         From that pivotal point, we were rarely more than six

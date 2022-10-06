@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import Invitation from '../../src/Components/Invitation'
 
-export default function Invitation() {
+export default function InvitationPage() {
     return (
         <>
             <Head>

@@ -15,7 +15,6 @@ export default function Loading({ setEditRsvpGroup }) {
         )
             .then((response) => response.json())
             .then((data) => {
-                console.log(data)
                 setEditRsvpGroup(data.invitees)
                 router.push('/')
             })
