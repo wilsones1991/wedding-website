@@ -101,7 +101,7 @@ h2 {
 }
 
 p {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     padding: 15px 0;
 }
 
@@ -156,7 +156,7 @@ a {
     height: 60px;
     margin: auto;
     padding: 20px 0;
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     overflow: hidden;
     z-index: 100;
 }
@@ -186,10 +186,6 @@ a {
     position: fixed;
     top: 0;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-}
-
-.sticky + main {
-    padding-top: 90px;
 }
 
 .nav-link {
@@ -225,7 +221,7 @@ a {
 
 .details-table {
     margin: 30px auto 0 auto;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
 }
 
 .details-table td {
@@ -266,7 +262,7 @@ a {
 }
 
 .get-party * {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 10px 0;
 }
 
@@ -294,6 +290,7 @@ a {
 
 .email-container input {
     flex: 1;
+    font-size: 1.3rem;
 }
 
 .warning {
@@ -305,24 +302,20 @@ a {
 }
 
 .card {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     max-width: 500px;
-}
-
-.card {
-    font-size: 1.25rem;
 }
 
 .card th,
 .card td {
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 0 10px;
     text-align: left;
 }
 
 .helper-text {
     color: red;
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin-top: 5px;
     margin-bottom: 10px;
     text-align: right;
@@ -333,6 +326,7 @@ a {
     position: relative;
     background: var(--main-background-color);
     padding: 20px;
+    width: 80vw;
     max-width: 500px;
 }
 
@@ -354,7 +348,7 @@ a {
 }
 
 .attendee-rsvp * {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin: 0;
 }
 
@@ -368,13 +362,13 @@ a {
 }
 
 .show-details * {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     margin: auto;
 }
 
 .comments {
     width: 100%;
-    font-size: 1rem;
+    font-size: 1.5rem;
     padding: 5px;
     margin: 5px 0;
 }
@@ -391,7 +385,7 @@ a {
     /* padding: 5px; */
     color: rgb(255, 247, 247);
     border-radius: 5px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
 }
 
 .button:hover {
@@ -578,5 +572,318 @@ a {
         margin-left: 25%;
         order: 2;
         flex: initial;
+    }
+}
+
+.page-wrapper {
+    overflow-y: hidden;
+}
+
+.envelope-wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -5;
+}
+/* This is just the background */
+.envelope {
+    max-width: 444px;
+    width: 95%;
+    margin: 40vh auto 20vh auto;
+    height: 300px;
+    background: rgb(205, 227, 235);
+    overflow-x: hidden;
+    border-radius: 0 0 10% 10%;
+}
+
+.envelope-flap-wrapper {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+.envelope-flap-wrapper {
+    animation-name: move-back;
+    animation-duration: 0s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    z-index: 3;
+}
+
+@keyframes move-back {
+    from {
+        z-index: 3;
+    }
+    to {
+        z-index: -100;
+    }
+}
+
+.envelope-flap-main-top {
+    width: 0px;
+    margin: calc(40vh) auto 20vh auto;
+    border-top: solid rgb(205, 227, 235) 185px;
+    border-left: solid transparent 222px;
+    border-right: solid transparent 222px;
+    z-index: 100;
+}
+
+.envelope-flap-border {
+    width: 0px;
+    margin: calc(40vh) auto 20vh auto;
+    border-top: solid rgb(168, 168, 165) 188px;
+    border-left: solid transparent 225px;
+    border-right: solid transparent 225px;
+    z-index: 50;
+}
+
+.envelope-inset-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.envelope-inset {
+    width: 0px;
+    margin: 40vh auto 0 auto;
+    border-bottom: solid rgb(205, 227, 235) 102px;
+    border-left: solid rgb(205, 227, 235) 222px;
+    border-right: solid rgb(205, 227, 235) 222px;
+    border-top: solid transparent 188px;
+    border-radius: 0 0 10% 10%;
+    transform: translateY(1.5px);
+}
+
+.envelope-inset-border-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.envelope-inset-border {
+    width: 0px;
+    margin: calc(40vh - 3px) auto 0 auto;
+    border-bottom: solid rgb(168, 168, 165) 102px;
+    border-left: solid rgb(168, 168, 165) 222px;
+    border-right: solid rgb(168, 168, 165) 222px;
+    border-top: solid transparent 188px;
+    border-radius: 0 0 10% 10%;
+    transform: translateY(1.5px);
+}
+
+@media (max-width: 468px) {
+    .envelope-flap-border {
+        border-left: solid transparent calc(47.5vw + 3px);
+        border-right: solid transparent calc(47.5vw + 3px);
+    }
+
+    .envelope-flap-main-top {
+        border-left: solid transparent calc(47.5vw);
+        border-right: solid transparent calc(47.5vw);
+    }
+
+    .envelope-inset-border {
+        border-left: solid rgb(168, 168, 165) calc(47.5vw);
+        border-right: solid rgb(168, 168, 165) calc(47.5vw);
+    }
+}
+
+.envelope-background-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+}
+
+.envelope-flap-main.background {
+    max-width: 444px;
+    width: 95%;
+    margin: 40vh auto 0 auto;
+    border-bottom: solid transparent 150px;
+    border-left: solid transparent 217px;
+    border-right: solid transparent 217px;
+    box-shadow: 0 0 0 3px rgb(168, 168, 165);
+    border-top: solid transparent 150px;
+    border-radius: 0 0 10% 10%;
+}
+
+@media (max-width: 468px) {
+    .envelope-inset {
+        border-left: solid rgb(211, 234, 240) 47.5vw;
+        border-right: solid rgb(211, 234, 240) 47.5vw;
+    }
+    .envelope-flap-main.background {
+        border-left: solid rgb(211, 234, 240) 45vw;
+        border-right: solid rgb(211, 234, 240) 45vw;
+    }
+}
+
+.rotated-main,
+.rotated-border {
+    animation-name: flip-open, scoot-main;
+    animation-duration: 4s;
+    transform-origin: top;
+    animation-fill-mode: forwards;
+}
+
+@keyframes flip-open {
+    from {
+        transform: rotateX(0);
+        z-index: 3;
+    }
+    99% {
+        z-index: 3;
+    }
+    to {
+        transform: rotateX(180deg);
+        z-index: -1;
+    }
+}
+
+@keyframes scoot-main {
+    from {
+        margin-top: 40vh;
+    }
+    30% {
+        margin-top: calc(40vh);
+    }
+    31% {
+        margin-top: calc(40vh - 3px);
+    }
+    to {
+        margin-top: calc(40vh - 3px);
+    }
+}
+
+.invitation-holder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin-top: 40vh;
+    max-height: 250px;
+    overflow-y: hidden;
+    animation-name: increase-height;
+    animation-duration: 6s;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    transform-origin: top;
+    z-index: -4;
+}
+
+.wedding-invitation {
+    max-width: 444px;
+    width: 95%;
+    display: block;
+    margin: auto;
+    animation-name: zoom;
+    animation-duration: 3s;
+    animation-delay: 7s;
+    animation-fill-mode: forwards;
+    transform-origin: top;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@media (max-width: 540px) {
+    @keyframes zoom {
+        from {
+            max-width: 444px;
+            width: 95%;
+        }
+        to {
+            max-width: 520px;
+            width: 100%;
+        }
+    }
+}
+
+@keyframes increase-height {
+    from {
+        max-height: 250px;
+        top: 0px;
+        z-index: -4;
+    }
+    50% {
+        max-height: 1200px;
+        top: calc(0px - 100vh);
+        z-index: 1;
+    }
+    to {
+        max-height: 1500px;
+        top: calc(0px - 30vh);
+        z-index: 1;
+    }
+}
+
+.wedding-invitation.allow-hover:hover {
+    cursor: pointer;
+}
+
+.rsvp-link-container {
+    position: absolute;
+    top: 5vh;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: -5;
+    animation: 0s linear 10s move-forward;
+    animation-fill-mode: forwards;
+}
+
+@keyframes move-forward {
+    from {
+        z-index: -5;
+    }
+    to {
+        z-index: 1;
+    }
+}
+
+.rsvp-link {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: rgb(106, 106, 106);
+    text-decoration: underline;
+}
+
+.rsvp-link:hover {
+    cursor: pointer;
+}
+
+.rsvp-link-veil {
+    position: absolute;
+    top: 0;
+    right: calc(50% - 200px);
+    background: rgb(255, 255, 255);
+    width: 400px;
+    height: 30px;
+    animation-name: reveal-text;
+    animation-duration: 2s;
+    animation-delay: 10s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes reveal-text {
+    from {
+        width: 400px;
+    }
+    to {
+        width: 0px;
     }
 }
