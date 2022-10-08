@@ -19,7 +19,7 @@ export const LastNameRequest = ({
         >
             <div id="get-name">
                 <label htmlFor="name">
-                    What is the last name on the invitation?
+                    What is your last name?
                 </label>
                 <div className="input-container">
                     <input
@@ -63,7 +63,7 @@ export const FirstNameRequest = ({
             >
                 <div id="get-first-name">
                     <label htmlFor="name">
-                        What is the first name on the invitation?
+                        What is your first name?
                     </label>
                     <div className="input-container">
                         <input
