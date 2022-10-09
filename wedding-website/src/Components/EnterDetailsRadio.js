@@ -190,7 +190,7 @@ function EnterDetailsRadio({
                     >
                         Please enter a valid email address.
                     </p>
-                    <label htmlFor="comments">Notes (optional):</label>
+                    <label htmlFor="comments">Notes - including dietary restrictions (optional):</label>
                     <textarea
                         id="comments"
                         className="comments"
