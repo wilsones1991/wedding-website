@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: futura;
-    src: url('/fonts/futura/futura Light font.ttf') format('truetype');
+    src: url('/fonts/futura/Futura Light font.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -25,7 +25,7 @@
 
 @font-face {
     font-family: futura;
-    src: url('/fonts/futura/futura Bold font.ttf') format('truetype');
+    src: url('/fonts/futura/Futura Bold font.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
 }
