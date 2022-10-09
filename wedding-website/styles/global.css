@@ -820,7 +820,7 @@ a {
         z-index: -4;
     }
     50% {
-        max-height: 1200px;
+        max-height: 1000px;
         top: calc(0px - 100vh);
         z-index: 1;
     }
