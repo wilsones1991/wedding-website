@@ -93,6 +93,7 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
     return (
         <section id="rsvp" className="rsvp">
             <h2>RSVP</h2>
+            <p className="centeredParagraph">Please RSVP by November 1st.</p>
             <div id="bottom-buffer" className="bottom-buffer">
                 <div id="rsvp-form-container" className="rsvp-form-container">
                     <GetParty

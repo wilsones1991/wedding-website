@@ -97,7 +97,7 @@ h2 {
 }
 
 h2 {
-    margin-bottom: 10px;
+    margin-top: 30px;
 }
 
 p {
@@ -888,6 +888,7 @@ a {
     }
 }
 
-.vaccination {
+.centeredParagraph {
     text-align: center;
+    margin: 0;
 }
