@@ -41,7 +41,7 @@ function Invitation() {
             <div className="invitation-holder">
                 <Link href={enableLink ? '/' : {}}>
                     <img
-                        src="/images/wedding-invitation.png"
+                        src="/images/wedding-invitation.jpeg"
                         alt="wedding invitation"
                         className="wedding-invitation"
                     />

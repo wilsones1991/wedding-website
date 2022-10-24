@@ -59,7 +59,7 @@ function Main() {
                         </tr>
                         <tr>
                             <th>Time: </th>
-                            <td>2:00 PM to 5:00 PM</td>
+                            <td>1:00 PM to 5:00 PM</td>
                         </tr>
                         <tr>
                             <th>Where: </th>
