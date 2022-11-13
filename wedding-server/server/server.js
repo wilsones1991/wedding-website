@@ -1,4 +1,4 @@
-// server/index.js
+// server/server.js
 // to ship updates --> gcloud app deploy
 
 const express = require("express");
@@ -75,6 +75,22 @@ app.get("/api", async (req, res) => {
       auth: auth,
       spreadsheetId: "141zEqk-SspamaAUT6m62ZWBYdcab1c9-cllgHc0ZEZk",
       range: "RSVPs!A2:H150",
+    });
+    res.json({
+      invitees: convertDataToObjects(data.data.values),
+      openEditRsvp: false,
+    });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+});
+
+app.get("/api/afterparty", async (req, res) => {
+  try {
+    const data = await sheets.spreadsheets.values.get({
+      auth: auth,
+      spreadsheetId: "141zEqk-SspamaAUT6m62ZWBYdcab1c9-cllgHc0ZEZk",
+      range: "After-Party-RSVPs!A2:H150",
     });
     res.json({
       invitees: convertDataToObjects(data.data.values),
