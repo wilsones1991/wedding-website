@@ -4,7 +4,7 @@ import GetParty from './GetParty'
 import EnterDetailsRadio from './EnterDetailsRadio'
 import ShowDetails from './ShowDetails'
 
-function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
+function RSVPform({ editRsvpGroup, setEditRsvpGroup, afterParty }) {
     const [invitees, setInvitees] = useState(null)
     const [submitted, setSubmitted] = useState(false)
     const [familyGroup, setFamilyGroup] = useState([])
@@ -26,8 +26,12 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup }) {
     }
 
     useEffect(() => {
+        let fetchURL = 'https://wedding-website-server-360220.wl.r.appspot.com/api'
+        if (afterParty) {
+            fetchURL = 'https://wedding-website-server-360220.wl.r.appspot.com/api/afterparty'
+        }
         if (editRsvpGroup.length === 0) {
-            fetch('https://wedding-website-server-360220.wl.r.appspot.com/api')
+            fetch(fetchURL)
                 .then((res) => {
                     const data = res.json()
                     data.then((data) => {

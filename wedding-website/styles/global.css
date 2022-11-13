@@ -892,3 +892,11 @@ a {
     text-align: center;
     margin: 0;
 }
+
+/* After party invitation */
+
+.after-party-invitation {
+    max-width: 500px;
+    margin: 10vh auto 0 auto;
+    display: block;
+}
