@@ -23,9 +23,9 @@ function AfterPartyInvitation() {
                 </a>
             </div>
             <div className="details">
-                <p>WINTER COZIEST ENCOURAGED!</p>
-                <p>LOCAL BEER, CIDER AND N.A. OPTIONS AVAILABLE</p>
-                <p>PIZZA ON US!</p>
+                <p>Winter coziest encouraged!</p>
+                <p>Local beer, cider and N.A. options available</p>
+                <p>Pizza on us!</p>
             </div>
             <div className="rsvp-link-container">
                 <a className="rsvp-link">RSVP here</a>
