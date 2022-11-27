@@ -900,3 +900,30 @@ a {
     margin: 10vh auto 0 auto;
     display: block;
 }
+
+.biggerList {
+    font-size: 1.4rem;
+    margin-left: 2em;
+}
+
+.linksList {
+    margin-bottom: 2em;
+}
+
+.parking {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.byCar {
+    margin-bottom: 1em;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
