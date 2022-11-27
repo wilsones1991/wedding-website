@@ -84,6 +84,7 @@ Oakland, CA 94618`}
                     </tbody>
                 </table>
                 <p className="centeredParagraph">We request for all guests to be vaccinated against COVID-19.</p>
+                <p className="smallerParagraph">Masks welcome</p>
             </section>
             <section className="parking">
             <h2>Directions and Parking</h2>

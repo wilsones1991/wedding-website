@@ -943,6 +943,6 @@ h4 {
     text-align: center;
 }
 
-.details > p {
-    font-size: 2rem;
+details > .smallerParagraph {
+    font-size: 1.2rem;
 }
