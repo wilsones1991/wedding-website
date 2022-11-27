@@ -935,3 +935,14 @@ h4 {
 .hidden {
     display: none;
 }
+
+.details {
+    width: 100%;
+    max-width: 800px;
+    margin: 1em auto 0 auto;
+    text-align: center;
+}
+
+.details > p {
+    font-size: 2rem;
+}
