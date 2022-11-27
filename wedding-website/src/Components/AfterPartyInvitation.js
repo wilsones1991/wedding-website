@@ -1,24 +1,30 @@
 import Link from 'next/link'
+import {useEffect} from 'react'
 
 function AfterPartyInvitation() {
 
+    useEffect(() => {
+        const rsvpLink = document.querySelector(".rsvp-link")
+        const afterPartyImg = document.querySelector(".after-invitation-holder")
+        const rsvpInput = document.getElementById("last-name-input")
+
+        rsvpLink.addEventListener("click", () => rsvpInput.focus())
+        afterPartyImg.addEventListener("click", () => rsvpInput.focus())
+    })
     return (
         <>
             <div className="after-invitation-holder">
-                <Link href='/'>
+                <a>
                     <img
                         src="/images/after-party-invitation.png"
                         alt="after party invitation"
                         className="after-party-invitation"
                     />
-                </Link>
+                </a>
             </div>
-            {/* <div className="rsvp-link-container">
-                <Link href='/'>
-                    <a className="rsvp-link">View details and RSVP here</a>
-                </Link>
-                <div className="rsvp-link-veil"></div>
-            </div> */}
+            <div className="rsvp-link-container">
+                <a className="rsvp-link">RSVP here</a>
+            </div>
         </>
     )
 }

@@ -140,6 +140,27 @@ app.post("/api", async (request, response) => {
   }
 });
 
+app.post("/api/afterparty", async (request, response) => {
+  const service = google.sheets({ version: "v4", auth });
+  const values = request.body.map((object) => {
+    return Object.values(object);
+  });
+
+  try {
+    const result = await service.spreadsheets.values.update({
+      spreadsheetId: "141zEqk-SspamaAUT6m62ZWBYdcab1c9-cllgHc0ZEZk",
+      range: `After-Party-RSVPs!A${request.body[0].row}:H${
+        request.body[request.body.length - 1].row
+      }`,
+      valueInputOption: "USER_ENTERED",
+      resource: { values },
+    });
+    response.json({ posted: "success" });
+  } catch (err) {
+    throw err;
+  }
+});
+
 app.post("/api/mail", (request, response) => {
   const htmlBody = `
   <p>Thank you for your RSVP! Please check your details below to make sure everything looks right.</p>

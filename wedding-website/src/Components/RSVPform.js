@@ -83,6 +83,7 @@ function RSVPform({ editRsvpGroup, setEditRsvpGroup, afterParty }) {
             showRsvpDetails={showRsvpDetails}
             setRsvpCommitted={setRsvpCommitted}
             handleClose={handleClose}
+            afterParty={afterParty}
         />
     )
 

@@ -9,8 +9,17 @@ function EnterDetailsRadio({
     formData,
     setFormData,
     showRsvpDetails,
-    handleClose
+    handleClose,
+    afterParty
 }) {
+    
+    useEffect(() => {
+        const email = document.querySelector(".email-container")
+        if (afterParty) {
+            email.classList.add("hidden")
+        }
+    },[afterParty])
+    
     const [responseLoaded, setResponseLoaded] = useState(null)
     const [disabled, setDisabled] = useState(true)
     const [showEmailError, setShowEmailError] = useState('hidden')
@@ -31,8 +40,9 @@ function EnterDetailsRadio({
             },
             body: JSON.stringify(familyGroup)
         }
+        const requestUrl = afterParty ? 'https://wedding-website-server-360220.wl.r.appspot.com/api/afterparty' : 'https://wedding-website-server-360220.wl.r.appspot.com/api'
         fetch(
-            'https://wedding-website-server-360220.wl.r.appspot.com/api',
+            requestUrl,
             requestOptions
         )
             .then((response) => response.json())
@@ -41,18 +51,21 @@ function EnterDetailsRadio({
                 setResponseLoaded(true)
                 confirmDetailsWrapper.classList.remove('loading')
             })
-        const emailRequestOptions = {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(familyGroup)
+        if (!afterParty) {
+            const emailRequestOptions = {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(familyGroup)
+            }
+            fetch(
+                'https://wedding-website-server-360220.wl.r.appspot.com/api/mail',
+                emailRequestOptions
+            )
         }
-        fetch(
-            'https://wedding-website-server-360220.wl.r.appspot.com/api/mail',
-            emailRequestOptions
-        )
+        
     }
 
     const validateEmail = (email) => {
@@ -67,7 +80,7 @@ function EnterDetailsRadio({
         const radioResponses = familyGroup.map((person) => person.rsvp)
         if (
             !radioResponses.some((rsvp) => rsvp === '') &&
-            validateEmail(formData.email)
+            (afterParty || validateEmail(formData.email))
         ) {
             setDisabled(false)
             return
@@ -117,7 +130,7 @@ function EnterDetailsRadio({
             <div className="confirm-details card">
                 <form onSubmit={handleDetailsClick}>
                     <legend>
-                        Please confirm who will be attending the wedding.
+                        Please confirm who will be attending the {afterParty ? "after party" : "wedding"}.
                     </legend>
                     <div className="attendee-rsvp-container">
                         {familyGroup.map((person, index) => {
@@ -190,7 +203,7 @@ function EnterDetailsRadio({
                     >
                         Please enter a valid email address.
                     </p>
-                    <label htmlFor="comments">Notes - including dietary restrictions (optional):</label>
+                    <label htmlFor="comments">Notes{afterParty ? "" : " - including dietary restrictions"} (optional):</label>
                     <textarea
                         id="comments"
                         className="comments"
