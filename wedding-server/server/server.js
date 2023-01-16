@@ -7,6 +7,8 @@ const nodemailer = require("nodemailer");
 const { convert } = require("html-to-text");
 const { google } = require("googleapis");
 const path = require("path");
+const fs = require("fs");
+
 require("dotenv").config();
 
 const keyfile = path.join(
@@ -41,6 +43,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
 
 function convertDataToObjects(data) {
   // Format data so front end can read it
@@ -68,6 +71,19 @@ function convertDataToObjects(data) {
   });
   return dataAsObjects;
 }
+
+app.get("/api/gallery", (req, res) => {
+  try {
+    const images = [];
+    const imagePath = path.join(__dirname, "..", "public", "wedding-images");
+    fs.readdirSync(imagePath).forEach(image => {
+      images.push(image)
+    })
+    res.json({"images": images});
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+})
 
 app.get("/api", async (req, res) => {
   try {
