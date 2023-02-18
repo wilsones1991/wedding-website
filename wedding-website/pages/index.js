@@ -46,10 +46,10 @@ export default function App({ editRsvpGroup, setEditRsvpGroup }) {
             <Navbar />
             <Carousel />
             <Main />
-            <RSVPform
+            {/* <RSVPform
                 editRsvpGroup={editRsvpGroup}
                 setEditRsvpGroup={setEditRsvpGroup}
-            />
+            /> */}
             <Footer />
         </>
     )

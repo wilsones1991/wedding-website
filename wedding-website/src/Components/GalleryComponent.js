@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Image from 'next/image';
 
 export default function Gallery() {
 
@@ -12,12 +13,14 @@ export default function Gallery() {
             .then((response) => response.json())
             .then((images) => {
                 setImages(images.images)
-            })  
+            })
     },[]);
 
     function handleCloseClick() {
         const closeup = document.querySelector(".closeupView");
         closeup.setAttribute("style", "display:none");
+        document.querySelector('html').style.overflow = 'visible';
+        document.querySelector('body').style.overflow = 'visible';
     }
 
     function handleLeftClick() {
@@ -41,6 +44,8 @@ export default function Gallery() {
         setImageIndex(index);
         const closeup = document.querySelector(".closeupView");
         closeup.setAttribute("style", closeupStyle);
+        document.querySelector('html').style.overflow = 'hidden'
+        document.querySelector('body').style.overflow = 'hidden'
     }
 
     function getImageUploader(index) {
@@ -56,18 +61,27 @@ export default function Gallery() {
     //     caption.setAttribute("style", "display:none;")
     // }
 
+    const imageLoader = ({ src, quality }) => {
+        return `https://wedding-website-server-360220.wl.r.appspot.com/wedding-images/${src}?q=${quality || 75}`
+      }
+
     return (
         <>
             <div className="gallery">
                 {images.map((image, index) => {
-                    return (
-                    <div className="galleryImage" key={index}>
-                        <div className="imgWrapper">
-                            <img className="galleryActualImg" src={"https://wedding-website-server-360220.wl.r.appspot.com/wedding-images/" + image} onClick={() => handleImgClick(index)} />
-                            <p className="caption">Uploaded by {getImageUploader(index)}</p>
-                        </div>
-                    </div>
-                    )
+                    if (image != undefined) {
+                        console.log(image);
+                        return (
+                            <div className="galleryImage" key={index}>
+                                <Image className="galleryActualImg"
+                                layout="fill"
+                                src={imageLoader({src: image})}
+                                onClick={() => handleImgClick(index)} />
+                                <p className="caption">Photo Credit: {getImageUploader(index)}</p>
+                            </div>
+                        )
+                    }
+
                 })}
             </div>
             <div className="closeupView">
@@ -75,20 +89,20 @@ export default function Gallery() {
                     <button className="galleryButton closeGallery" onClick={handleCloseClick}>X</button>
                     <button className="galleryButton leftArrow" onClick={handleLeftClick}>&lt;</button>
                     <div className="galleryImgContainer">
-                        <img src={"https://wedding-website-server-360220.wl.r.appspot.com/wedding-images/" + images[imageIndex]} />
+                        <img src={"https://wedding-website-server-360220.wl.r.appspot.com/wedding-images/" + images[imageIndex]} loading="lazy" />
                     </div>
                     <button className="galleryButton rightArrow" onClick={handleRightClick}>&gt;</button>
                 </div>
                 <div className="imgMetadata">
                     <div>
-                        <p className="closeUpCaption">Uploaded by {getImageUploader(imageIndex)}</p>
+                        <p className="closeUpCaption">Photo Credit: {getImageUploader(imageIndex)}</p>
                     </div>
                     <div>
                         <p className="imgCount">Image {imageIndex + 1} of {images.length}</p>
                     </div>
                 </div>
             </div>
-            
+
         </>
     )
 }

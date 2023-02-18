@@ -41,14 +41,14 @@ function Main() {
                         On April 6, 2022, Eric proposed to Kylie at the end of
                         the journey of The Road to Hana in Maui.
                     </p>
-                    <p>
+                    {/* <p>
                         We are thrilled to have the privilege to invite you to
                         be a part of the the ultimate bubble, our wedding
                         celebration!
-                    </p>
+                    </p> */}
                 </div>
             </section>
-            <span id="details" className="anchor"></span>
+            {/* <span id="details" className="anchor"></span>
             <section className="details">
                 <h2>Details</h2>
                 <table className="details-table">
@@ -93,7 +93,7 @@ Oakland, CA 94618`}
                 <li className="biggerList"><a href="https://www.ebparks.org/sites/default/files/BeachHouse-MapParking-2021.jpg" target="_blank">Beach House Parking Lot Map</a></li>
                 <li className="biggerList"><a href="https://www.ebparks.org/rentals-and-permits/event-venues/beach-house#:~:text=NEXT-,About%20the%20Facility,-Opened%20to%20the" target="_blank">Beach House Facility Information</a></li>
             </ul>
-            
+
             <h3>To reach the Beach House</h3>
             <p>Temescal Beach House is located in the Temescal Regional Recreation Area near the intersection of Hwy 13 and Hwy 24 in Oakland between Broadway Terrace and Keith Avenue/Broadway.</p>
             <h3 className="byCar">By Car</h3>
@@ -103,7 +103,7 @@ Oakland, CA 94618`}
             <p>If you are approaching from the Walnut Creek area, go through the Caldecott Tunnel in the RIGHT LANE of the right tunnel. As you exit the tunnel, take the Tunnel Road exit, then turn left onto the freeway overpass (Caldecott Lane), turn right onto Broadway. Proceed .7 mile to the Park entrance on the left.</p>
             <h4>From northbound Highway 13 in Oakland:</h4>
             <p>Take Highway 13 to Highway 24 East (toward the Caldecott Tunnel). Stay in the right lane. Take Old Tunnel Road exit, keep right (now on Broadway). Go .7 mile to the Park Entrance on the left.</p>
-            </section>
+            </section> */}
         </main>
     )
 }
