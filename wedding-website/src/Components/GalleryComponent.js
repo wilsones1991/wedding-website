@@ -48,7 +48,7 @@ export default function Gallery() {
 
     function getPhotoCredit(index) {
         if (index <= 211) {
-            return "Cat Fennell";
+            return "Cat Fennell Photography";
         } else {
             return "Eric Wilson";
         }
@@ -73,6 +73,8 @@ export default function Gallery() {
                     )
                 })}
             </div>
+            <p>All photos by Cat Fennell</p>
+            <p><a href="https://www.catfennell.com/">Cat Fennell Photography</a></p>
             <div className="closeupView">
                 <div className="closeupCloseButtonContainer">
                     <button className="galleryButton closeGallery" onClick={handleCloseClick}>X</button>
