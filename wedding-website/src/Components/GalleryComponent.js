@@ -74,7 +74,7 @@ export default function Gallery() {
                 })}
             </div>
             <p>All photos by Cat Fennell</p>
-            <p><a href="https://www.catfennell.com/">Cat Fennell Photography</a></p>
+            <a href="https://www.catfennell.com/">Cat Fennell Photography</a>
             <div className="closeupView">
                 <div className="closeupCloseButtonContainer">
                     <button className="galleryButton closeGallery" onClick={handleCloseClick}>X</button>
