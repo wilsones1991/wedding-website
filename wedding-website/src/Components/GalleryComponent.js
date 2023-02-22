@@ -7,6 +7,18 @@ export default function Gallery() {
 
     const closeupStyle = "position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: rgba(15, 15, 15, .9);display: flex;flex-direction:column;align-items: center;z-index: 1000000;overflowY: hidden;"
 
+    function load(imageIndex) {
+        requestAnimationFrame(() => startRender(imageIndex));
+    }
+    function startRender(imageIndex) {
+        requestAnimationFrame(() => renderBorder(imageIndex));
+    }
+
+    function renderBorder(index) {
+        const img = document.getElementById("image-" + index);
+        img.classList.add("closeupImageBorder");
+    }
+
     function handleCloseClick() {
         const closeup = document.querySelector(".closeupView");
         closeup.setAttribute("style", "display:none");
@@ -15,11 +27,11 @@ export default function Gallery() {
     }
 
     function handleLeftClick() {
+
         if (imageIndex === 1) {
             setImageIndex(211);
         } else {
-            setImageIndex(imageIndex - 1);
-        }
+            setImageIndex(imageIndex - 1);        }
     }
 
     function handleRightClick() {
@@ -81,12 +93,10 @@ export default function Gallery() {
                 <div className="closeupCarousel">
                     <button className="galleryButton leftArrow" onClick={handleLeftClick}>&lt;</button>
                     <div className="galleryImgContainer">
-                        <Image
-                            width={10000}
-                            height={10000}
+                        <img
+                            id={"image-" + imageIndex}
+                            style={{border: "solid 10px white"}}
                             src={`/images/gallery-images/gallery-photo-${imageIndex}.jpeg`}
-                            placeholder="blur"
-                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcMWOeDwAFugIc9oXdhAAAAABJRU5ErkJggg=="
                             className="closeupImage"
                          />
                     </div>
