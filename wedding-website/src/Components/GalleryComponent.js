@@ -85,6 +85,8 @@ export default function Gallery() {
                             width={10000}
                             height={10000}
                             src={`/images/gallery-images/gallery-photo-${imageIndex}.jpeg`}
+                            placeholder="blur"
+                            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcMWOeDwAFugIc9oXdhAAAAABJRU5ErkJggg=="
                             className="closeupImage"
                          />
                     </div>
