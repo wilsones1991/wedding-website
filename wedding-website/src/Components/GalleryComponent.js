@@ -73,7 +73,7 @@ export default function Gallery() {
                     )
                 })}
             </div>
-            <p>All photos by Cat Fennell - <a href="https://www.catfennell.com/">Cat Fennell Photography</a></p>
+            <p className="photoCredit">All photos by Cat Fennell - <a href="https://www.catfennell.com/">Cat Fennell Photography</a></p>
             <div className="closeupView">
                 <div className="closeupCloseButtonContainer">
                     <button className="galleryButton closeGallery" onClick={handleCloseClick}>X</button>
@@ -82,9 +82,11 @@ export default function Gallery() {
                     <button className="galleryButton leftArrow" onClick={handleLeftClick}>&lt;</button>
                     <div className="galleryImgContainer">
                         <Image
-                            layout="fill"
+                            width={10000}
+                            height={10000}
                             src={`/images/gallery-images/gallery-photo-${imageIndex}.jpeg`}
-                            className="closeupImage" />
+                            className="closeupImage"
+                         />
                     </div>
                     <button className="galleryButton rightArrow" onClick={handleRightClick}>&gt;</button>
                 </div>
@@ -93,7 +95,7 @@ export default function Gallery() {
                         <p className="closeUpCaption">Photo Credit: {getPhotoCredit(imageIndex)}</p>
                     </div>
                     <div>
-                        <p className="imgCount">Image {imageIndex + 1} of 211</p>
+                        <p className="imgCount">Image {imageIndex} of 211</p>
                     </div>
                 </div>
             </div>
