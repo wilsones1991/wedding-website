@@ -5,7 +5,7 @@ export default function Gallery() {
 
     const [imageIndex, setImageIndex] = useState(null);
 
-    const closeupStyle = "position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: rgba(15, 15, 15, .9);display: flex;flex-direction: column;align-items: center;z-index: 1000000;overflowY: hidden;"
+    const closeupStyle = "position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: rgba(15, 15, 15, .9);display: flex;flex-direction: column;justify-content: center;align-items: center;z-index: 1000000;overflowY: hidden;"
 
     function load(imageIndex) {
         requestAnimationFrame(() => startRender(imageIndex));
@@ -87,6 +87,7 @@ export default function Gallery() {
             </div>
             <p className="photoCredit">All photos by Cat Fennell - <a href="https://www.catfennell.com/">Cat Fennell Photography</a></p>
             <div className="closeupView">
+
                 <div className="closeupCloseButtonContainer">
                     <button className="galleryButton closeGallery" onClick={handleCloseClick}>X</button>
                 </div>
@@ -102,7 +103,7 @@ export default function Gallery() {
                     </div>
                     <button className="galleryButton rightArrow" onClick={handleRightClick}>&gt;</button>
                 </div>
-                <div className="imgMetadata">
+                <div class="imgMetadata">
                     <div>
                         <p className="closeUpCaption">Photo Credit: {getPhotoCredit(imageIndex)}</p>
                     </div>
@@ -111,7 +112,6 @@ export default function Gallery() {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
