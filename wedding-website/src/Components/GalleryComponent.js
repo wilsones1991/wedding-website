@@ -29,13 +29,13 @@ export default function Gallery() {
     function handleLeftClick() {
 
         if (imageIndex === 1) {
-            setImageIndex(211);
+            setImageIndex(194);
         } else {
             setImageIndex(imageIndex - 1);        }
     }
 
     function handleRightClick() {
-        if (imageIndex >= 211) {
+        if (imageIndex >= 194) {
             setImageIndex(1);
         } else {
             setImageIndex(imageIndex + 1);
@@ -52,14 +52,14 @@ export default function Gallery() {
 
     function setupIndexes() {
         const indexes = [];
-        for (let index = 0; index < 211; index++) {
+        for (let index = 0; index < 194; index++) {
             indexes.push(index + 1);
         }
         return indexes;
     }
 
     function getPhotoCredit(index) {
-        if (index <= 211) {
+        if (index <= 194) {
             return "Cat Fennell Photography";
         } else {
             return "Eric Wilson";
@@ -107,7 +107,7 @@ export default function Gallery() {
                         <p className="closeUpCaption">Photo Credit: {getPhotoCredit(imageIndex)}</p>
                     </div>
                     <div>
-                        <p className="imgCount">Image {imageIndex} of 211</p>
+                        <p className="imgCount">Image {imageIndex} of 194</p>
                     </div>
                 </div>
             </div>
