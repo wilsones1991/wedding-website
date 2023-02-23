@@ -5,7 +5,7 @@ export default function Gallery() {
 
     const [imageIndex, setImageIndex] = useState(null);
 
-    const closeupStyle = "position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: rgba(15, 15, 15, .9);display: flex;flex-direction:column;align-items: center;z-index: 1000000;overflowY: hidden;"
+    const closeupStyle = "position: fixed;top: 0;left: 0;right: 0;bottom: 0;background: rgba(15, 15, 15, .9);display: flex;flex-direction: column;align-items: center;z-index: 1000000;overflowY: hidden;"
 
     function load(imageIndex) {
         requestAnimationFrame(() => startRender(imageIndex));
